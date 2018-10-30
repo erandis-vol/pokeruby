@@ -1,6 +1,6 @@
 # Pokémon Ruby and Sapphire
 
-This is a disassembly of Pokémon Ruby and Sapphire.
+This is a hack of Pokémon Ruby and Sapphire.
 
 It builds the following roms:
 
@@ -9,3 +9,6 @@ It builds the following roms:
 
 To set up the repository, see [INSTALL.md](https://github.com/pret/pokeruby/blob/master/INSTALL.md).
 
+## Features
+
+* The [Physical/Special split](https://bulbapedia.bulbagarden.net/wiki/Damage_category)
