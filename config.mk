@@ -45,12 +45,7 @@ ifeq ($(GAME_LANGUAGE), ENGLISH)
   BUILD_NAME := $(BUILD_NAME)
   GAME_CODE  := $(GAME_CODE)E
 else
-ifeq ($(GAME_LANGUAGE), GERMAN)
-  BUILD_NAME := $(BUILD_NAME)_de
-  GAME_CODE  := $(GAME_CODE)D
-else
   $(error unknown language $(GAME_LANGUAGE))
-endif
 endif
 
 # Debug

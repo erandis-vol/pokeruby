@@ -65,7 +65,7 @@ LD_SCRIPT := $(BUILD_DIR)/ld_script.ld
 
 #### Main Rules ####
 
-ALL_BUILDS := ruby ruby_rev1 ruby_rev2 sapphire sapphire_rev1 sapphire_rev2 ruby_de sapphire_de ruby_de_debug
+ALL_BUILDS := ruby ruby_rev1 ruby_rev2 sapphire sapphire_rev1 sapphire_rev2
 
 # Available targets
 .PHONY: all clean tidy $(ALL_BUILDS)
@@ -144,9 +144,6 @@ ruby_rev2:     ; @$(MAKE) GAME_VERSION=RUBY GAME_REVISION=2
 sapphire:      ; @$(MAKE) GAME_VERSION=SAPPHIRE
 sapphire_rev1: ; @$(MAKE) GAME_VERSION=SAPPHIRE GAME_REVISION=1
 sapphire_rev2: ; @$(MAKE) GAME_VERSION=SAPPHIRE GAME_REVISION=2
-ruby_de:       ; @$(MAKE) GAME_VERSION=RUBY GAME_LANGUAGE=GERMAN
-sapphire_de:   ; @$(MAKE) GAME_VERSION=SAPPHIRE GAME_LANGUAGE=GERMAN
-ruby_de_debug: ; @$(MAKE) GAME_VERSION=RUBY GAME_LANGUAGE=GERMAN DEBUG=1
 
 
 #### Graphics Rules ####
