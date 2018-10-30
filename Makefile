@@ -68,15 +68,19 @@ LD_SCRIPT := $(BUILD_DIR)/ld_script.ld
 ALL_BUILDS := ruby ruby_rev1 ruby_rev2 sapphire sapphire_rev1 sapphire_rev2 ruby_de sapphire_de ruby_de_debug
 
 # Available targets
-.PHONY: all clean tidy tools $(ALL_BUILDS)
+.PHONY: all clean tidy $(ALL_BUILDS)
 
 infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst __SPACE__, ,$(line))))
 
 # Build tools when building the rom
 # Disable dependency scanning for clean/tidy/tools
-ifeq (,$(filter-out all,$(MAKECMDGOALS)))
-$(call infoshell, $(MAKE) tools)
-else
+#ifeq (,$(filter-out all,$(MAKECMDGOALS)))
+#$(call infoshell, $(MAKE) tools)
+#else
+#NODEP := 1
+#endif
+
+ifneq (,$(filter-out all,$(MAKECMDGOALS)))
 NODEP := 1
 endif
 
@@ -110,25 +114,25 @@ clean: tidy
 	find sound/direct_sound_samples \( -iname '*.bin' \) -exec rm {} +
 	$(RM) $(ALL_OBJECTS)
 	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' -o -iname '*.rl' \) -exec rm {} +
-	$(MAKE) clean -C tools/gbagfx
-	$(MAKE) clean -C tools/scaninc
-	$(MAKE) clean -C tools/preproc
-	$(MAKE) clean -C tools/bin2c
-	$(MAKE) clean -C tools/rsfont
-	$(MAKE) clean -C tools/aif2pcm
-	$(MAKE) clean -C tools/ramscrgen
-	$(MAKE) clean -C tools/gbafix
+#	$(MAKE) clean -C tools/gbagfx
+#	$(MAKE) clean -C tools/scaninc
+#	$(MAKE) clean -C tools/preproc
+#	$(MAKE) clean -C tools/bin2c
+#	$(MAKE) clean -C tools/rsfont
+#	$(MAKE) clean -C tools/aif2pcm
+#	$(MAKE) clean -C tools/ramscrgen
+#	$(MAKE) clean -C tools/gbafix
 
-tools:
-	@$(MAKE) -C tools/gbagfx
-	@$(MAKE) -C tools/scaninc
-	@$(MAKE) -C tools/preproc
-	@$(MAKE) -C tools/bin2c
-	@$(MAKE) -C tools/rsfont
-	@$(MAKE) -C tools/aif2pcm
-	@$(MAKE) -C tools/ramscrgen
-	@$(MAKE) -C tools/mid2agb
-	@$(MAKE) -C tools/gbafix
+#tools:
+#	@$(MAKE) -C tools/gbagfx
+#	@$(MAKE) -C tools/scaninc
+#	@$(MAKE) -C tools/preproc
+#	@$(MAKE) -C tools/bin2c
+#	@$(MAKE) -C tools/rsfont
+#	@$(MAKE) -C tools/aif2pcm
+#	@$(MAKE) -C tools/ramscrgen
+#	@$(MAKE) -C tools/mid2agb
+#	@$(MAKE) -C tools/gbafix
 
 tidy:
 	$(RM) $(ALL_BUILDS:%=poke%{.gba,.elf,.map})
