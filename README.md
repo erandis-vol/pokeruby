@@ -1,6 +1,6 @@
 # Pokémon Ruby and Sapphire
 
-This is a hack of Pokémon Ruby and Sapphire that adds the The [Physical/Special split](https://bulbapedia.bulbagarden.net/wiki/Damage_category) from future generations.
+This is a hack of Pokémon Ruby and Sapphire that adds the [Physical/Special split](https://bulbapedia.bulbagarden.net/wiki/Damage_category) from future generations.
 
 It builds the following roms:
 
